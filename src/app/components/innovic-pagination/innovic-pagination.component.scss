@@ -1,0 +1,39 @@
+@import '../../state/style/variables.scss';
+
+.pagination-container {
+    margin-top: 1rem;
+
+    .pagination-number {
+        width: 30px;
+        height: 30px;
+        outline: none;
+        border: none;
+        border-radius: 0.3rem;
+        margin-right: 1rem;
+        background: $color-grey;
+        transition: background 0.2s ease-in-out, transform 0.2s ease-in-out,
+            'font-size' 0.2s ease-in-out;
+
+        &:hover,
+        &.active {
+            background: $color-black-2;
+            transform: scale(1.2);
+
+            p {
+                font-size: 1.4rem;
+                color: $color-white;
+            }
+        }
+
+        p {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: $color-black;
+
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+        }
+    }
+}

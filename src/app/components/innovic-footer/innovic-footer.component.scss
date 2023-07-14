@@ -1,0 +1,19 @@
+@import '../../state/style/variables.scss';
+
+.footer-container {
+    border-top: 0.2rem solid $color-grey;
+    padding: 2rem;
+    margin-top: 2rem;
+
+    p {
+        color: $color-black-2;
+        font-size: 1.3rem;
+        font-weight: 500;
+        line-height: 1.4rem;
+
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+        user-select: none !important;
+    }
+}

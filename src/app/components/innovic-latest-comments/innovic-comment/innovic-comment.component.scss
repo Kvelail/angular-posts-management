@@ -1,0 +1,95 @@
+@import '../../../state/style/variables.scss';
+
+.comment {
+    border: 0.1rem solid $color-grey;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+    .comment-up {
+        border-bottom: 0.1rem solid $color-grey;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+
+        .mail-box {
+            margin-right: 1rem;
+
+            p {
+                font-size: 1.7rem;
+                font-weight: 500;
+                color: $color-black-2;
+            }
+
+            .span-box {
+                p {
+                    font-size: 1.2rem;
+                    font-weight: 300;
+                    margin-right: 0.4rem !important;
+                }
+
+                span {
+                    font-size: 1.6rem;
+                    font-weight: 700;
+                    color: $color-purple;
+                }
+            }
+
+            p,
+            span {
+                &::-moz-selection {
+                    color: $color-black;
+                    background: rgb(47, 47, 47, 0.2);
+                }
+
+                &::selection {
+                    color: $color-black;
+                    background: rgb(47, 47, 47, 0.2);
+                }
+            }
+        }
+    }
+
+    .comment-down {
+        p {
+            text-align: end;
+            font-size: 1.2rem;
+            text-transform: capitalize;
+
+            &::-moz-selection {
+                color: $color-black;
+                background: rgb(47, 47, 47, 0.2);
+            }
+
+            &::selection {
+                color: $color-black;
+                background: rgb(47, 47, 47, 0.2);
+            }
+        }
+    }
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 900px) and (max-width: 1100px) {
+    .comment {
+        .comment-up {
+            .mail-box {
+                p {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 200px) and (max-width: 1000px) {
+    .comment {
+        .comment-up {
+            .mail-box {
+                p {
+                    font-size: 1.7rem;
+                }
+            }
+        }
+    }
+}

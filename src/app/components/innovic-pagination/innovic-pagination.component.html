@@ -1,0 +1,15 @@
+<div
+    class="d-flex align-items-center justify-content-center pagination-container"
+>
+    <ng-container
+        *ngFor="let number of numberOfPaginationArray; trackBy: trackByIdentity"
+    >
+        <button
+            class="d-flex align-items-center justify-content-center pagination-number"
+            [ngClass]="{ active: number.isActive }"
+            (click)="handlePaginationNumberClick(number.number)"
+        >
+            <p class="m-0">{{ number.number }}</p>
+        </button>
+    </ng-container>
+</div>

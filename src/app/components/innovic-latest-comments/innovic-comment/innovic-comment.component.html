@@ -1,0 +1,23 @@
+<div class="d-flex flex-column justify-content-center comment">
+    <div class="d-flex justify-content-end align-items-center comment-up">
+        <div
+            class="d-flex flex-column justify-content-center align-items-end mail-box"
+        >
+            <p class="m-0">{{ commentEmail }}</p>
+
+            <div class="d-flex align-items-center span-box">
+                <p class="m-0 justify-self-end">has commented on post</p>
+
+                <span class="m-0">#{{ postNumber }}</span>
+            </div>
+        </div>
+
+        <app-innovic-avatar></app-innovic-avatar>
+    </div>
+
+    <div class="d-flex align-items-center comment-down">
+        <p class="m-0">
+            {{ commentText }}
+        </p>
+    </div>
+</div>

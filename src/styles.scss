@@ -1,0 +1,30 @@
+@import '/src/app/state/style/variables.scss';
+
+/* DEFAULTS */
+
+:root {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.body-background {
+    background: $color-light;
+}

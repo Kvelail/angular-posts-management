@@ -1,0 +1,23 @@
+<div class="d-flex flex-column justify-content-center latest-comments">
+    <div class="align-items-center latest-comments-header">
+        <div class="d-flex justify-content-end align-items-center header-box">
+            <p class="m-0">Latest Comments</p>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column overflow-auto latest-comments-body">
+        <ng-container
+            *ngFor="
+                let commentItem of commentsList;
+                let index = index;
+                trackBy: trackByIdentity
+            "
+        >
+            <app-innovic-comment
+                [commentEmail]="commentItem.email"
+                [commentText]="commentItem.body"
+                [postNumber]="commentItem.postId"
+            ></app-innovic-comment>
+        </ng-container>
+    </div>
+</div>

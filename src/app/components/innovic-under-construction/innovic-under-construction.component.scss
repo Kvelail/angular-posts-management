@@ -1,0 +1,27 @@
+@import '../../state/style/variables.scss';
+
+.under-construction-container {
+    border: 0.1rem solid $color-grey;
+    border-radius: 0.5rem;
+    padding: 10rem;
+    text-align: center;
+
+    h2,
+    h3 {
+        color: $color-black;
+
+        &::-moz-selection {
+            color: $color-black;
+            background: rgb(47, 47, 47, 0.2);
+        }
+
+        &::selection {
+            color: $color-black;
+            background: rgb(47, 47, 47, 0.2);
+        }
+    }
+
+    h2 {
+        font-size: 5rem;
+    }
+}

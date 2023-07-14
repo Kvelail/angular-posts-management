@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <app-innovic-logo></app-innovic-logo>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto">
+                <ng-container
+                    *ngFor="
+                        let menuItem of navbarMenuItems;
+                        trackBy: trackByIdentity
+                    "
+                >
+                    <li>
+                        <a
+                            class="d-flex justify-content-center align-items-center ta-font-bold link"
+                            [routerLink]="[menuItem.route]"
+                            [routerLinkActive]="'link-active'"
+                        >
+                            {{ menuItem.title }}
+                        </a>
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+
+        <button
+            class="navbar-toggler dropdown-icon"
+            type="button"
+            (click)="handleDropdownClick()"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div
+            class="d-flex flex-column justify-content-center dropdown-menu"
+            [ngClass]="{ 'display-dropdown': displayDropdown }"
+        >
+            <div class="d-flex justify-content-center logo-box">
+                <app-innovic-logo
+                    [logoDimensionsInPixels]="40"
+                ></app-innovic-logo>
+            </div>
+
+            <ul>
+                <ng-container
+                    *ngFor="
+                        let menuItem of navbarMenuItems;
+                        trackBy: trackByIdentity
+                    "
+                >
+                    <li>
+                        <a
+                            class="d-flex justify-content-center align-items-center ta-font-bold link"
+                            [routerLink]="[menuItem.route]"
+                            [routerLinkActive]="'link-active'"
+                        >
+                            {{ menuItem.title }}
+                        </a>
+                    </li>
+                </ng-container>
+            </ul>
+        </div>
+    </div>
+</nav>

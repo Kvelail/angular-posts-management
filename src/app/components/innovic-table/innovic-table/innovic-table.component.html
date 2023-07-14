@@ -1,0 +1,294 @@
+<!-- POST LIST VIEW  -->
+
+<ng-container *ngIf="!isReviewingPost">
+    <div class="d-flex flex-column justify-content-center posts-table">
+        <div class="align-items-center posts-table-header">
+            <ng-container
+                *ngFor="
+                    let headerItem of tableHeaderItems;
+                    trackBy: trackByIdentity
+                "
+            >
+                <div class="d-flex align-items-center header-box">
+                    <p class="m-0">{{ headerItem.title }}</p>
+                </div>
+            </ng-container>
+        </div>
+
+        <div
+            class="d-flex flex-column justify-content-between posts-table-body"
+        >
+            <div class="posts-container">
+                <ng-container
+                    *ngFor="
+                        let postItem of postsListToDisplay;
+                        trackBy: trackByIdentity
+                    "
+                >
+                    <app-innovic-post
+                        [postOrdinal]="postItem.id"
+                        [postTitle]="postItem.title"
+                        [postDescription]="postItem.body"
+                        (isReviewingPostEmitter)="
+                            handleIsReviewingClick($event)
+                        "
+                    ></app-innovic-post>
+                </ng-container>
+            </div>
+
+            <app-innovic-pagination
+                [numberOfPaginationArray]="numberOfPaginationArray"
+                (paginationNumberEmitter)="handlePaginationNumberEmit($event)"
+            ></app-innovic-pagination>
+        </div>
+    </div>
+</ng-container>
+
+<!-- POST VIEW  -->
+
+<ng-container *ngIf="isReviewingPost">
+    <div class="post-info-container">
+        <div class="d-flex flex-column">
+            <!-- POST INFO USER -->
+
+            <div class="post-info-user">
+                <div class="d-flex flex-column justify-content-center">
+                    <p class="m-0">
+                        {{ postInfoDataToDisplay?.userInfo?.name }}
+                    </p>
+
+                    <div class="d-flex align-items-center icon-box">
+                        <svg-icon
+                            class="icon"
+                            src="../../../assets/svg/email.svg"
+                            [svgStyle]="{
+                                'width.px': 20,
+                                'height.px': 20
+                            }"
+                        ></svg-icon>
+
+                        <p class="m-0">
+                            {{ postInfoDataToDisplay?.userInfo?.email }}
+                        </p>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div class="d-flex align-items-center icon-box">
+                        <svg-icon
+                            class="icon"
+                            src="../../../assets/svg/location.svg"
+                            [svgStyle]="{
+                                'width.px': 20,
+                                'height.px': 20
+                            }"
+                        ></svg-icon>
+
+                        <p class="m-0">
+                            {{
+                                postInfoDataToDisplay?.userInfo?.address?.street
+                            }}
+                            {{
+                                postInfoDataToDisplay?.userInfo?.address?.suite
+                            }}
+                        </p>
+                    </div>
+
+                    <div class="d-flex align-items-center icon-box">
+                        <svg-icon
+                            class="icon"
+                            src="../../../assets/svg/phone.svg"
+                            [svgStyle]="{
+                                'width.px': 20,
+                                'height.px': 20
+                            }"
+                        ></svg-icon>
+
+                        <p class="m-0">
+                            {{ postInfoDataToDisplay?.userInfo?.phone }}
+                        </p>
+                    </div>
+
+                    <div class="d-flex align-items-center icon-box">
+                        <svg-icon
+                            class="icon"
+                            src="../../../assets/svg/website.svg"
+                            [svgStyle]="{
+                                'width.px': 20,
+                                'height.px': 20
+                            }"
+                        ></svg-icon>
+
+                        <p class="m-0">
+                            www.{{ postInfoDataToDisplay?.userInfo?.website }}
+                        </p>
+                    </div>
+
+                    <div class="d-flex align-items-center icon-box">
+                        <svg-icon
+                            class="icon"
+                            src="../../../assets/svg/company.svg"
+                            [svgStyle]="{
+                                'width.px': 20,
+                                'height.px': 20
+                            }"
+                        ></svg-icon>
+
+                        <p class="m-0">
+                            {{ postInfoDataToDisplay?.userInfo?.company?.name }}
+                        </p>
+                    </div>
+                </div>
+
+                <div
+                    class="d-flex justify-content-center align-items-center avatar-box"
+                >
+                    <app-innovic-avatar
+                        [avatarDimensionsInPixels]="60"
+                    ></app-innovic-avatar>
+                </div>
+            </div>
+
+            <!-- POST INFO DETAILS -->
+
+            <div
+                class="d-flex flex-column justify-content-center post-info-details"
+            >
+                <p class="m-0">#{{ postInfoDataToDisplay?.postInfo?.id }}</p>
+
+                <div class="d-flex align-items-center post-info-title-box">
+                    <ng-container *ngIf="!isEditingPost">
+                        <h2 class="m-0">
+                            {{ postInfoDataToDisplay?.postInfo?.title }}
+                        </h2>
+                    </ng-container>
+
+                    <ng-container *ngIf="isEditingPost">
+                        <div
+                            class="d-flex flex-column justify-content-center post-info-title-input-box"
+                        >
+                            <label for="postTitle">Post Title</label>
+                            <input
+                                type="text"
+                                id="postTitle"
+                                spellcheck="false"
+                                #titleInput
+                            />
+                        </div>
+                    </ng-container>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="d-flex align-items-center post-info-body-box">
+                    <ng-container *ngIf="!isEditingPost">
+                        <span class="m-0">
+                            {{ postInfoDataToDisplay?.postInfo?.body }}
+                        </span>
+                    </ng-container>
+
+                    <ng-container *ngIf="isEditingPost">
+                        <div
+                            class="d-flex flex-column justify-content-center post-info-title-textarea-box"
+                        >
+                            <label for="postBody">Post Body</label>
+                            <textarea
+                                id="postBody"
+                                spellcheck="false"
+                                rows="8"
+                                #titleBody
+                            ></textarea>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+
+        <!-- POST INFO COMMENTS -->
+
+        <div class="d-flex flex-column post-info-comments">
+            <div class="align-items-center post-info-comments-header">
+                <div
+                    class="d-flex justify-content-end align-items-center header-box"
+                >
+                    <p class="m-0">Post Comments</p>
+                </div>
+            </div>
+
+            <div
+                class="d-flex flex-column overflow-auto post-info-comments-body"
+            >
+                <ng-container
+                    *ngFor="
+                        let commentItem of postInfoDataToDisplay?.commentsInfo;
+                        trackBy: trackByIdentity
+                    "
+                >
+                    <app-innovic-comment
+                        [commentEmail]="commentItem.email"
+                        [commentText]="commentItem.body"
+                        [postNumber]="commentItem.postId"
+                    ></app-innovic-comment>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <!-- BTN CONTAINER -->
+
+    <div
+        class="d-flex justify-content-between align-items-center btn-container"
+    >
+        <button
+            class="d-flex align-items-center back-btn"
+            (click)="handleBackClick()"
+        >
+            <svg-icon
+                class="back-icon"
+                src="../../../assets/svg/arrow.svg"
+                [svgStyle]="{
+                    'width.px': 40,
+                    'height.px': 40
+                }"
+            ></svg-icon>
+
+            <p class="m-0">Back</p>
+        </button>
+
+        <ng-container *ngIf="!isEditingPost">
+            <button
+                class="d-flex align-items-center edit-btn"
+                (click)="handleEditPostClick()"
+            >
+                <svg-icon
+                    class="edit-icon"
+                    src="../../../assets/svg/edit.svg"
+                    [svgStyle]="{
+                        'width.px': 40,
+                        'height.px': 40
+                    }"
+                ></svg-icon>
+
+                <p class="m-0">Edit post</p>
+            </button>
+        </ng-container>
+
+        <ng-container *ngIf="isEditingPost">
+            <button
+                class="d-flex align-items-center save-btn"
+                (click)="handleSavePostClick()"
+            >
+                <svg-icon
+                    class="save-icon"
+                    src="../../../assets/svg/save.svg"
+                    [svgStyle]="{
+                        'width.px': 40,
+                        'height.px': 40
+                    }"
+                ></svg-icon>
+
+                <p class="m-0">Save post</p>
+            </button>
+        </ng-container>
+    </div>
+</ng-container>

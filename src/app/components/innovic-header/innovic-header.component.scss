@@ -1,0 +1,85 @@
+@import '../../state/style/variables.scss';
+
+.navbar {
+    width: 100%;
+    border-bottom: 0.1rem solid $color-grey;
+
+    li {
+        margin-right: 5rem;
+        width: 10rem;
+    }
+
+    .link {
+        color: $color-black-2;
+        font-size: 2rem;
+        line-height: 1.2rem;
+        text-decoration: none;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+        user-select: none !important;
+
+        &:hover,
+        &-active {
+            transform: scale(1.2);
+            font-weight: 700;
+        }
+    }
+
+    .dropdown-icon {
+        transition: transform 0.2s ease-in-out;
+        box-shadow: none;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        right: 0.8rem;
+        top: 6rem;
+        padding: 3rem 5rem;
+        background: $color-light;
+        display: none !important;
+
+        &.display-dropdown {
+            animation: slideIn 200ms;
+            display: flex !important;
+        }
+
+        .logo-box {
+            margin-bottom: 2rem;
+        }
+
+        ul {
+            padding-left: 0;
+        }
+
+        li {
+            margin-right: 0;
+            margin-bottom: 2rem;
+            width: 10rem;
+
+            &:nth-child(4) {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+/* ANIMATION */
+
+@keyframes slideIn {
+    from {
+        display: none !important;
+        transform: translatex(100rem);
+    }
+
+    to {
+        transform: translatex(0);
+    }
+}

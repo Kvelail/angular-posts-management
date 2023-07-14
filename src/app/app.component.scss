@@ -1,0 +1,9 @@
+.main-container {
+    max-width: 1400px;
+    min-height: 100vh;
+    padding: 0 2rem;
+
+    .middle-container {
+        flex-grow: 1;
+    }
+}

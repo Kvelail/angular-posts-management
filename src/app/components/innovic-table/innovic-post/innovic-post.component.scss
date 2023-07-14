@@ -1,0 +1,45 @@
+@import '../../../state/style/variables.scss';
+
+.post-container {
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-columns: 2% 25% 68%;
+    grid-gap: 2rem;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out, background 0.1s ease-in-out;
+
+    &:hover {
+        transform: scale(1.01);
+        background: $color-black-2 !important;
+
+        .post-box p {
+            color: $color-white;
+        }
+    }
+
+    .post-box p {
+        font-size: 1.5rem;
+        color: $color-black;
+        transition: color 0.1s ease-in-out;
+
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+        user-select: none !important;
+    }
+
+    .post-box:nth-child(1) {
+        p {
+            font-weight: 700;
+        }
+    }
+
+    .post-box:nth-child(2),
+    .post-box:nth-child(3) {
+        p {
+            text-transform: capitalize;
+        }
+    }
+}

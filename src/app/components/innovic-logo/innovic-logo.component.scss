@@ -1,0 +1,17 @@
+@import '../../state/style/variables.scss';
+
+.logo {
+    svg {
+        path {
+            fill: $color-purple;
+        }
+    }
+
+    &-grey {
+        svg {
+            path {
+                fill: $color-grey;
+            }
+        }
+    }
+}

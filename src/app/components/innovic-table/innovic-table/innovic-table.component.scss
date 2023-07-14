@@ -1,0 +1,285 @@
+@import '../../../state/style/variables.scss';
+
+.posts-table {
+    width: 100%;
+
+    &-header {
+        width: 100%;
+        padding: 1rem 2rem;
+        background-color: $color-purple;
+        border-radius: 0.5rem;
+        display: grid;
+        grid-template-columns: 2% 25% 68%;
+        grid-gap: 2rem;
+        margin-bottom: 1rem;
+
+        .header-box p {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: $color-white;
+
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+        }
+
+        .header-box:nth-child(1) {
+            p {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .posts-container {
+        height: 70vh;
+    }
+}
+
+.post-info-container {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-gap: 1rem;
+
+    .line {
+        border: 2px solid $color-blue;
+        height: 2px;
+        width: 10rem;
+        margin: 0.3rem 0 2rem 0;
+    }
+
+    p,
+    h2,
+    span {
+        &::-moz-selection {
+            color: $color-black;
+            background: rgb(47, 47, 47, 0.2);
+        }
+
+        &::selection {
+            color: $color-black;
+            background: rgb(47, 47, 47, 0.2);
+        }
+    }
+
+    .post-info-user {
+        margin-bottom: 1rem;
+        width: 100%;
+        border: 0.2rem solid $color-grey;
+        border-radius: 0.5rem;
+        padding: 2rem;
+        display: grid;
+        grid-template-columns: 80% 20%;
+        grid-gap: 1rem;
+
+        p {
+            color: $color-black;
+        }
+
+        p:nth-child(1) {
+            font-size: 3rem;
+            line-height: 3rem;
+            color: $color-purple;
+            font-weight: 700;
+        }
+
+        .icon-box {
+            .icon {
+                margin-right: 0.5rem;
+
+                svg {
+                    path {
+                        fill: $color-purple;
+                    }
+                }
+            }
+
+            p {
+                font-size: 1.4rem;
+            }
+        }
+
+        .avatar-box {
+            padding-right: 5rem;
+        }
+    }
+
+    .post-info-details {
+        width: 100%;
+        border: 0.2rem solid $color-grey;
+        border-radius: 0.5rem;
+        padding: 2rem;
+
+        p {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: $color-purple;
+        }
+
+        .post-info-title-box,
+        .post-info-body-box {
+            margin-bottom: 2rem;
+
+            &.post-info-body-box {
+                margin-bottom: 0;
+            }
+
+            h2 {
+                text-transform: capitalize;
+            }
+
+            span {
+                text-transform: capitalize;
+                font-size: 1.8rem;
+            }
+
+            .post-info-title-input-box,
+            .post-info-title-textarea-box {
+                width: 100%;
+
+                label {
+                    font-size: 1.3em;
+                    font-weight: 700;
+                    margin-bottom: 0.4rem;
+
+                    -webkit-user-select: none !important;
+                    -moz-user-select: none !important;
+                    -ms-user-select: none !important;
+                    user-select: none !important;
+                }
+
+                input,
+                textarea {
+                    padding: 1rem 0.5rem;
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                    transition: outline 0.1s ease-in-out;
+                    color: $color-black;
+                    text-transform: capitalize;
+                    resize: none;
+                    outline: none;
+                    border-radius: 0.5rem;
+                    background: $color-light;
+
+                    &::-moz-selection {
+                        color: $color-black;
+                        background: rgb(47, 47, 47, 0.2);
+                    }
+
+                    &::selection {
+                        color: $color-black;
+                        background: rgb(47, 47, 47, 0.2);
+                    }
+
+                    &:focus {
+                        outline: 0.3rem solid $color-purple;
+                        border-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+
+    .post-info-comments {
+        width: 99%;
+        border: 0.2rem solid $color-grey;
+        border-radius: 0.5rem;
+        padding: 1rem;
+
+        &-header {
+            width: 100%;
+            padding: 0.5rem 1rem;
+            background-color: $color-purple;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+
+            .header-box p {
+                font-size: 1.8rem;
+                font-weight: 500;
+                color: $color-white;
+
+                -webkit-user-select: none !important;
+                -moz-user-select: none !important;
+                -ms-user-select: none !important;
+                user-select: none !important;
+            }
+        }
+
+        &-body {
+            height: 60vh;
+        }
+    }
+}
+
+.btn-container {
+    margin-top: 4rem;
+
+    .back-btn,
+    .edit-btn,
+    .save-btn {
+        border: none;
+        outline: none;
+        background: none;
+        padding-right: 1rem;
+
+        &:hover .back-icon,
+        &:hover .edit-icon,
+        &:hover .save-icon {
+            transition: transform 0.2s ease-in-out;
+            transform: scale(1.2);
+        }
+
+        &:hover .back-icon {
+            rect {
+                transition: fill 0.2s ease-in-out;
+                fill: $color-purple;
+            }
+        }
+
+        &:hover .edit-icon,
+        &:hover .save-icon {
+            path {
+                transition: path 0.2s ease-in-out;
+                fill: $color-purple;
+            }
+        }
+
+        .back-icon {
+            rect {
+                fill: $color-black;
+            }
+
+            path {
+                fill: $color-white;
+            }
+        }
+
+        .edit-icon,
+        .save-icon {
+            path {
+                fill: $color-black;
+            }
+        }
+
+        p {
+            color: $color-black;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-left: 1rem !important;
+
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+        }
+    }
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 750px) {
+    .post-info-container {
+        grid-template-columns: 100%;
+    }
+}

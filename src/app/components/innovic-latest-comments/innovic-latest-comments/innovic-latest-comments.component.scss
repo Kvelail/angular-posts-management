@@ -1,0 +1,28 @@
+@import '../../../state/style/variables.scss';
+
+.latest-comments {
+    width: 100%;
+
+    &-header {
+        width: 100%;
+        padding: 1rem 2rem;
+        background-color: $color-purple;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+
+        .header-box p {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: $color-white;
+
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+        }
+    }
+
+    &-body {
+        height: 70vh;
+    }
+}
