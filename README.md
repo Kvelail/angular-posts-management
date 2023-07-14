@@ -1,8 +1,25 @@
-# Y
+# ANGULAR POSTS MANAGEMENT
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
+This project is an assignment and serves as part of job interview.
+
+-   Angular version 16.1.3
+-   Node version 18.16.1
+
+## Short preview and introduction
+
+-   On first load there are API calls from service for posts, users, comments and all data is stored in AKITA store. After that, all the data that is needed is pulled from the store. Also all store updates are done from service.
+
+-   Routing implemented and #404 page - under construction
+
+-   Smart/Dumb components
+
+-   SCSS
+
+-   Bootstrap
 
 ## Development server
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
